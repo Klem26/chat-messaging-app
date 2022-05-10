@@ -1,0 +1,28 @@
+.channelList{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.listMessage {
+    color: #ffffff;
+    padding: 0 16px;
+}
+.listMessageLoading{
+    height: 115px;
+}
+
+.teamHeader {
+    padding: 0 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.teamTitle {
+    font-family: Helvetica Neue, sans-serif;
+    font-size: 13px;
+    line-height: 16px;
+    height: 16px;
+    color: rgba(255, 255, 255, 0.66);
+    margin-bottom: 10px;
+}
