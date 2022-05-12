@@ -8,9 +8,10 @@ import HospitalIcon from "../../assets/hospital.png";
 import LogoutIcon from "../../assets/logout.png";
 
 import styles from "./ChannelListContainer.module.css";
-// import TeamChannelPreview from "../TeamChannelPreview";
 
-const SideBar = () => {
+const cookies = new Cookies();
+
+const SideBar = ({ logout }) => {
   return (
     <div className={styles.list}>
       <div className={styles.sidebar}>
@@ -20,7 +21,7 @@ const SideBar = () => {
       </div>
 
       <div className={styles.sidebarLogout}>
-        <div className={styles.icon1}>
+        <div className={styles.icon1} onClick={logout}>
           <img src={LogoutIcon} alt="Logout" width="30" />
         </div>
       </div>
@@ -35,9 +36,20 @@ const CompanyHeader = () => (
 );
 
 const ChannelListContainer = () => {
+  const logout = () => {
+    cookies.remove("token");
+    cookies.remove("userId");
+    cookies.remove("username");
+    cookies.remove("fullName");
+    cookies.remove("avatarURL");
+    cookies.remove("phoneNumber");
+    cookies.remove("hashedPassword");
+
+    window.location.reload();
+  };
   return (
     <>
-      <SideBar />
+      <SideBar logout={logout} />
       <div className={styles.wrapper}>
         <CompanyHeader />
         <ChannelSearch />
