@@ -26,12 +26,13 @@ const Auth = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { fullName, username, password, phoneNumber, avatarURL } = form;
+    const { username, password, phoneNumber, avatarURL } = form;
     const URL = "http://localhost:8080/auth";
     const {
-      data: { token, userId, hashedPassword },
+      data: { token, userId, hashedPassword, fullName },
     } = await axios.post(`${URL}/${isSignup ? "signup" : "login"}`, {
-      fullName,
+      fullName: form.fullName,
+
       username,
       password,
       phoneNumber,
@@ -39,8 +40,8 @@ const Auth = () => {
     });
 
     cookies.set("token", token);
-    cookies.set(" fullName", fullName);
-    cookies.set(" username", username);
+    cookies.set("fullName", fullName);
+    cookies.set("username", username);
     cookies.set("userId", userId);
 
     if (isSignup) {
