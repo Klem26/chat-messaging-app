@@ -1,0 +1,77 @@
+.container {
+display: flex;
+flex-direction: column;
+height: 100%;
+}
+
+.userList {
+display: flex;
+align-items: center;
+margin: 0px 20px;
+justify-content: space-between;
+}
+
+
+.text{
+    font-family: Helvetica Neue, sans-serif;
+    font-size: 14px;
+    line-height: 17px;
+    color: #858688;
+    margin-top: 16px;
+}
+
+.text:first-child {
+    flex: 2;
+}
+
+.text:nth-child(2) {
+    flex: 0.5;
+    text-align: right;
+    margin: 0px 20px;
+}
+
+.userItem {
+    display: flex;
+    align-items: center;
+    margin: 0px 20px;
+    justify-content: space-between;
+}
+
+.userItem:hover {
+    background: #f7f6f8;
+    cursor: pointer;
+}
+
+
+.nameWrapper{
+   display: flex;
+   align-items: center;
+   flex: 2;
+   text-align: left;
+}
+
+.userName {
+    font-family: Helvetica Neue, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+    color: #2c2c30;
+    word-break: break-all;
+}
+
+.listMessage {
+    font-family: Helvetica Neue, sans-serif;
+    font-size: 16px;
+    color: #2c2c30;
+    margin: 20px;
+}
+
+.inviteEmpty {
+    height: 28px;
+    width: 28px;
+    background: #f7f6f8;
+    border: 1px solid #dedddf;
+    border-radius: 14px;
+    box-sizing: border-box;
+    margin-left: 2px;
+}
