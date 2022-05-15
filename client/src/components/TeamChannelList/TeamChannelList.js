@@ -3,7 +3,17 @@ import styles from "./TeamChannelList.module.css";
 
 import { AddChannel } from "../../assets";
 
-const TeamChannelList = ({ children, error = false, loading, type }) => {
+const TeamChannelList = ({
+  setToggleContainer,
+  children,
+  error = false,
+  loading,
+  type,
+  isCreating,
+  setIsCreating,
+  setCreateType,
+  setIsEditing,
+}) => {
   if (error) {
     return type === "team" ? (
       <div className={styles.channelList}>
@@ -26,9 +36,17 @@ const TeamChannelList = ({ children, error = false, loading, type }) => {
   return (
     <div className={styles.channelList}>
       <div className={styles.teamHeader}>
-        <p className={styles.Title}>
+        <p className={styles.teamTitle}>
           {type === "team" ? "Channels" : "Direct Messages"}
         </p>
+        <AddChannel
+          isCreating={isCreating}
+          setIsCreating={setIsCreating}
+          setCreateType={setCreateType}
+          setIsEditing={setIsEditing}
+          type={type === "team" ? "team" : "messaging"}
+          setToggleContainer={setToggleContainer}
+        />
       </div>
       {children}
     </div>
