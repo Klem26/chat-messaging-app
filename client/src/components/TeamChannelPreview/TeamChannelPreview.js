@@ -5,8 +5,6 @@ import styles from "./TeamChannelPreview.module.css";
 
 const TeamChannelPreview = ({
   setActiveChannel,
-  setIsCreating,
-  setIsEditing,
   setToggleContainer,
   channel,
   type,
@@ -44,8 +42,6 @@ const TeamChannelPreview = ({
           : "channel-preview__wrapper"
       }
       onClick={() => {
-        setIsCreating(false);
-        setIsEditing(false);
         setActiveChannel(channel);
         if (setToggleContainer) {
           setToggleContainer((prevState) => !prevState);

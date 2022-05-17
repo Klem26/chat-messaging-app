@@ -31,23 +31,23 @@ const EditChannel = ({ setIsEditing }) => {
   const [channelName, setChannelName] = useState(channel?.data?.name);
   const [selectedUsers, setSelectedUsers] = useState([]);
 
-  const updateChannel = async (event) => {
+  const updateChannel = (event) => {
     event.preventDefault();
 
     const nameChanged = channelName !== (channel.data.name || channel.data.id);
 
     if (nameChanged) {
-      await channel.update(
+      channel.update(
         { name: channelName },
         { text: `Channel name changed to ${channelName}` }
       );
     }
 
     if (selectedUsers.length) {
-      await channel.addMembers(selectedUsers);
+      channel.addMembers(selectedUsers);
     }
 
-    setChannelName(null);
+    setChannelName("");
     setIsEditing(false);
     setSelectedUsers([]);
   };
