@@ -28,11 +28,11 @@ const Auth = () => {
 
     const { username, password, phoneNumber, avatarURL } = form;
     const URL = "http://localhost:8080/auth";
+    // const URL = "https://medical-chat-messaging.herokuapp.com/auth";
     const {
       data: { token, userId, hashedPassword, fullName },
     } = await axios.post(`${URL}/${isSignup ? "signup" : "login"}`, {
       fullName: form.fullName,
-
       username,
       password,
       phoneNumber,
@@ -82,7 +82,7 @@ const Auth = () => {
               </label>
               <input
                 className={styles.input}
-                name="Username"
+                name="username"
                 type="text"
                 placeholder="Username"
                 onChange={handleChange}
